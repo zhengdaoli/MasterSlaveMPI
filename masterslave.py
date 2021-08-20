@@ -108,7 +108,7 @@ if __name__ == "__main__":
     gather_lock=Semaphore(client_num)
     gather_queue = Queue(client_num)
 
-    sendback_queue = Queue(1)
+    sendback_queue = Queue(client_num)
 
     master = Master(client_num, gather_lock ,gather_queue, sendback_queue)
     master.start()
